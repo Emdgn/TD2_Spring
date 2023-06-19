@@ -1,12 +1,21 @@
 package com.inti;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.inti.service.ProduitService;
+import com.inti.model.Produit;
 
 @Controller
 public class ProduitController {
+	
+	@Autowired
+	ProduitService ps;
 	
 	@GetMapping("produit")
 	public String affichageNomProduit(@RequestParam(value = "nom", required = false, 
@@ -40,8 +49,20 @@ public class ProduitController {
 		
 		m.addAttribute("nom", nom);
 		m.addAttribute("prixTTC", prixTTC);
-		
+	
 		return "afficherInfoProduit";
 	}
-
+	
+	@GetMapping("ajoutProduit")
+	public String ajoutProduit() {
+		return "ajoutProduit";
+	}
+	
+	@PostMapping("ajoutProduit")
+	public String ajoutProduit(@ModelAttribute("produit") Produit produit) { //Le modelattribute permet de donner le même nom aux deux fonctions
+		
+		ps.saveProduit(produit);
+		
+		return "redirect:ajoutProduit";
+	}
 }

@@ -1,5 +1,6 @@
 package com.inti.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,9 @@ public class Produit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(length = 50, nullable = false) //nullable = false i.e. not null
 	private String nom;
+	@Column(unique = true)
 	private String reference;
 	private double prix;
 	private double poids;
