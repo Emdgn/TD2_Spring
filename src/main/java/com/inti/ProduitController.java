@@ -1,10 +1,13 @@
 package com.inti;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -64,5 +67,42 @@ public class ProduitController {
 		ps.saveProduit(produit);
 		
 		return "redirect:ajoutProduit";
+	}
+	
+	
+	@GetMapping("listeProduit")
+	public String listeProduit(Model m) {
+		
+		List<Produit> listeProduit = ps.getProduits();
+		
+		m.addAttribute("listeProduit", listeProduit);
+		
+		return "listeProduit";
+	}
+	
+	@GetMapping("supprimerProduit/{id}")
+	public String supprimerProduit(@PathVariable("id") int id) {
+		
+		ps.deleteProduit(id);
+		
+		return "redirect:/listeProduit"; //quand on met le / il part de la racine
+	}
+	
+	
+	
+	
+	
+	@GetMapping("afficheProduit")
+	public String afficheProduit() {
+		return "getIdProduit";
+	}
+	
+	@PostMapping("afficheProduit") 
+	public String afficheProduit(@ModelAttribute("id") int id, Model m) {
+		
+		Produit produit = ps.getProduit(id);
+		m.addAttribute("produit", produit);
+		
+		return "afficheProduitEx2";
 	}
 }
