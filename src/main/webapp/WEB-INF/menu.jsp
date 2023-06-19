@@ -26,6 +26,15 @@
           <li class="nav-item">
             <a class="nav-link" href="listeProduit">Afficher liste produit/Supprimer produit</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ajoutMagasin">Enregistrer magasin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="afficheMagasin">Afficher un magasin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listeMagasin">Afficher liste magasin/Supprimer magasin</a>
+          </li>
           
           
           

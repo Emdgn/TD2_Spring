@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Identifiant du produit</title>
+<title>Identifiant du magasin</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -26,7 +26,7 @@
 	            <div class="row justify-content-center">
 	              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 	
-	                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Afficher un produit</p>
+	                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Afficher un magasin</p>
 	
 	                <form class="mx-1 mx-md-4" method="post" modelAttribute="produit">
 	
